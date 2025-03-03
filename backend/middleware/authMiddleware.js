@@ -33,6 +33,4 @@ const admin = (req, res, next) => {
     } 
 };
 
-
-
-export default { protect, admin };
+export default {admin, protect};
