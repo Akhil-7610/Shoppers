@@ -1,8 +1,8 @@
-import express from "express";
-import Cart from '../models/Cart.js';
-import Product from '../models/Product.js';
-import authMiddleware from "../middleware/authMiddleware.js";
-const { protect } = authMiddleware;
+const express = require("express");
+const Cart = require("../models/Cart.js");
+const Product = require("../models/Product.js");
+const { protect } = require("../middleware/authMiddleware.js");
+
 
 const router = express.Router();
 
@@ -246,4 +246,4 @@ router.post("/merge", protect, async (req, res) => {
 
 
 
-export default router
+module.exports = router

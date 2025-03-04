@@ -55,8 +55,7 @@ const ProductDetails = ({ productId }) => {
                 guestId,
                 userId: user?._id,
             })
-        )
-            .then(() => {
+        ).then(() => {
                 toast.success("Product added to cart!", {
                     duration: 1000,
                 });
@@ -192,5 +191,6 @@ const ProductDetails = ({ productId }) => {
         </div>
     );
 };
+
 
 export default ProductDetails;

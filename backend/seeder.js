@@ -1,9 +1,9 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import Product from './models/Product.js';
-import User from "./models/user.js";
-import products from "./data/products.js";
-import Cart from "./models/Cart.js"
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const Product = require("./models/Product.js");
+const User = require("./models/user.js");
+const products = require("./data/products.js");
+const Cart = require("./models/Cart.js");
 
 dotenv.config();
 

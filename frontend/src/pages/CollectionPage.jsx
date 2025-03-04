@@ -8,17 +8,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsByFilters } from "../redux/slices/productSlice";
 
 const CollectionPage = () => {
-    const { collection } = useParams();
+    const {collection} = useParams();
     const [searchParams] = useSearchParams();
     const dispatch = useDispatch();
-    const { products, loading, error } = useSelector((state) => state.products);
+    const {products, loading, error} = useSelector((state) => state.products);
     const queryParams = Object.fromEntries([...searchParams]);
 
     const sidebarRef = useRef(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
-        dispatch(fetchProductsByFilters({ collection, ...queryParams }));
+        dispatch(fetchProductsByFilters({ collection, ...queryParams}));
     }, [dispatch, collection, searchParams]);
 
     const toggleSidebar = () => {

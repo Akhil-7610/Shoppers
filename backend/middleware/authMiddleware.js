@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import User from "../models/user.js";
+const jwt = require("jsonwebtoken");
+const User = require("../models/user");
 
 // Middleware to protect routes
 const protect = async (req, res, next) => {
@@ -33,4 +33,5 @@ const admin = (req, res, next) => {
     } 
 };
 
-export default {admin, protect};
+
+module.exports = { admin, protect };

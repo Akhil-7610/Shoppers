@@ -33,15 +33,16 @@ export const fetchProductsByFilters = createAsyncThunk(
         if(limit) query.append("limit", limit);
 
         const response = await axios.get(
+            
             `${import.meta.env.VITE_BACKEND_URL}/api/products?${query.toString()}`
-        );
+        );       
         return response.data;
     }
 );
 
 // Async Thunk to fetch a single product by ID
 export const fetchProductDetails = createAsyncThunk("products/fetchProductDetails",async(id) => {
-    const response = await axios.get(
+    const response = await axios.get(        
         `${import.meta.env.VITE_BACKEND_URL}/api/products/${id}`
     );
     return response.data;
@@ -69,8 +70,9 @@ export const fetchSimilarProducts = createAsyncThunk(
     async ({ id }) => {
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/similar/${id}`);
         return response.data;
-    }
+    }    
 );
+
 
 const productsSlice = createSlice({
     name: "products",

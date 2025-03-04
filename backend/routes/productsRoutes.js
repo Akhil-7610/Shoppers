@@ -1,7 +1,6 @@
-import express, { query } from "express";
-import Product from "../models/Product.js";
-import authMiddleware from "../middleware/authMiddleware.js";
-const { protect, admin } = authMiddleware;
+const express = require("express");
+const Product = require("../models/Product.js");
+const { protect, admin } = require("../middleware/authMiddleware.js");
 
 const router = express.Router();
 
@@ -315,7 +314,4 @@ router.get("/similar/:id", async (req, res) => {
     }
 });
 
-
-
-
-export default router;
+module.exports = router;
