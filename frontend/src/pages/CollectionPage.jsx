@@ -14,7 +14,7 @@ const CollectionPage = () => {
     const {products, loading, error} = useSelector((state) => state.products);
     const queryParams = Object.fromEntries([...searchParams]);
 
-    console.log(products)
+    // console.log(products)
 
     const sidebarRef = useRef(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);

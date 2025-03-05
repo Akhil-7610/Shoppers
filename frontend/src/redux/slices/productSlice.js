@@ -36,6 +36,7 @@ export const fetchProductsByFilters = createAsyncThunk(
             
             `${import.meta.env.VITE_BACKEND_URL}/api/products?${query.toString()}`
         );       
+        console.log(response.data);
         
         return response.data;
     }
@@ -61,11 +62,11 @@ export const updateProduct = createAsyncThunk(
                 },
             }
         );
-        console.log(response.data)
         return response.data;
     }
 );
 
+ 
 // Async thunk to fetch similar products
 export const fetchSimilarProducts = createAsyncThunk(
     "products/fetchSimilarProducts",
