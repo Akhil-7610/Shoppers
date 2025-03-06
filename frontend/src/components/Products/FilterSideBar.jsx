@@ -18,7 +18,7 @@ const FilterSideBar = () => {
     maxPrice: 10000,
   });
 
-  const [priceRange, setPriceRange] =useState([0, 10000]);
+  const [priceRange, setPriceRange] =useState([0, 100]);
 
   const categories = ["Top Wear", "Bottom Wear"];
 
@@ -72,9 +72,9 @@ const FilterSideBar = () => {
       material: params.material ? params.material.split(",") : [],
       brand: params.brand ? params.brand.split(",") : [],
       minPrice: params.minPrice || 0,
-      maxPrice: params.maxPrice || 10000,
+      maxPrice: params.maxPrice || 100,
     });
-    setPriceRange([0, params.maxPrice || 10000]);
+    setPriceRange([0, params.maxPrice || 100]);
   }, [searchParams]);
 
   const handleFilterChange = (e) => {
@@ -226,10 +226,10 @@ const FilterSideBar = () => {
          name="priceRange"
          className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
          min={0}
-         max={10000} />
+         max={100} />
         <div className="flex justify-between text-gray-600 mt-2">
-          <span>₹0</span>
-          <span>₹{priceRange[1]}</span>
+          <span>$0</span>
+          <span>${priceRange[1]}</span>
         </div>
       </div>
 

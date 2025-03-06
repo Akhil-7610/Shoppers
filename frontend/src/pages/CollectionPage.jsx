@@ -19,9 +19,13 @@ const CollectionPage = () => {
     const sidebarRef = useRef(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+    // useEffect(() => {
+    //     dispatch(fetchProductsByFilters({ collection, ...queryParams}));
+    // }, [dispatch, collection, searchParams]);
     useEffect(() => {
-        dispatch(fetchProductsByFilters({ collection, ...queryParams}));
+        dispatch(fetchProductsByFilters({ collection, ...queryParams }));
     }, [dispatch, collection, searchParams]);
+    
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -33,6 +37,7 @@ const CollectionPage = () => {
             setIsSidebarOpen(false);
         }
     };
+   
 
     useEffect(() => {
         // Add Event listener for clicks
@@ -67,7 +72,10 @@ const CollectionPage = () => {
                 <SortOptions />
 
                 {/* Product Grid */}
+                
                 <ProductGrid products={products} loading={loading} error={error} />
+
+                
             </div>
         </div>
     );

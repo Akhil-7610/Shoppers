@@ -114,7 +114,7 @@ const ProductDetails = ({ productId }) => {
                             <p className="text-lg text-gray-600 mb-1 line-through">
                                 {selectedProduct.originalPrice && `${selectedProduct.originalPrice}`}
                             </p>
-                            <p className="text-xl text-gray-500 mb-2">₹{selectedProduct.price}</p>
+                            <p className="text-xl text-gray-500 mb-2">${selectedProduct.price}</p>
                             <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
                             <div className="mb-4">
                                 <p className="text-gray-700">Color:</p>
@@ -184,7 +184,7 @@ const ProductDetails = ({ productId }) => {
                     </div>
                     <div className="mt-20">
                         <h2 className="text-2xl text-center font-medium mb-4">You May Like</h2>
-                        <ProductGrid products={similarProducts || []} loading={loading}  error={error} /> 
+                        <ProductGrid products={ similarProducts || []} loading={loading}  error={error} /> 
                     </div>
                 </div>
             )}

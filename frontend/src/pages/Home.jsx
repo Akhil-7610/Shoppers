@@ -61,6 +61,9 @@ const Home = () => {
         <FeaturedCollection />
         <FeaturedSection />
 
+        
+       
+
 
 
     </div>

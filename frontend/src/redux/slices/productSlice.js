@@ -32,12 +32,9 @@ export const fetchProductsByFilters = createAsyncThunk(
         if(brand) query.append("brand", brand);
         if(limit) query.append("limit", limit);
 
-        const response = await axios.get(
-            
+        const response = await axios.get(            
             `${import.meta.env.VITE_BACKEND_URL}/api/products?${query.toString()}`
-        );       
-        console.log(response.data);
-        
+        );
         return response.data;
     }
 );
@@ -62,7 +59,7 @@ export const updateProduct = createAsyncThunk(
                 },
             }
         );
-        return response.data;
+        return response.data;        
     }
 );
 
