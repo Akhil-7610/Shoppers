@@ -22,3 +22,6 @@ const pAypALbUTTON = ({amount, onSuccess, onError}) => {
 }
 
 export default pAypALbUTTON
+
+
+
