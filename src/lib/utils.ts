@@ -23,8 +23,8 @@ export const toSlug = (text: string): string =>
     .replace(/-+/g, '-')
 
 
-const CURRENCY_FORMATTER = new Intl.NumberFormat('en-IN', {
-  currency: 'INR',
+const CURRENCY_FORMATTER = new Intl.NumberFormat('en-US', {
+  currency: 'USD',
   style: 'currency',
   minimumFractionDigits: 2
 })

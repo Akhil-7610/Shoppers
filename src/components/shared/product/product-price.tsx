@@ -26,7 +26,7 @@ const ProductPrice = ({
     currency_formate(price)
   ) : listPrice == 0 ? (
     <div className={cn('text-3xl', className)}>
-      <span className='text-xs align-super'>₹</span>
+      <span className='text-xs align-super'>$</span>
       {intValue}
       <span className='text-xs align-super'>{floatValue}</span>
     </div>
@@ -46,7 +46,7 @@ const ProductPrice = ({
         } items-center gap-2`}
       >
         <div className={cn('text-3xl', className)}>
-          <span className='text-xs align-super'>₹</span>
+          <span className='text-xs align-super'>$</span>
           {intValue}
           <span className='text-xs align-super'>{floatValue}</span>
         </div>
@@ -61,7 +61,7 @@ const ProductPrice = ({
       <div className='flex justify-center gap-3'>
         <div className='text-3xl text-orange-700'>-{discountPercent}%</div>
         <div className={cn('text-3xl', className)}>
-          <span className='text-xs align-super'>₹</span>
+          <span className='text-xs align-super'>$</span>
           {intValue}
           <span className='text-xs align-super'>{floatValue}</span>
         </div>
