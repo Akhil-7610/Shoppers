@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaFilter } from 'react-icons/fa';
-import FilterSideBar from "./components/Products/FilterSideBar";
-import SortOptions from "./components/Products/SortOptions";
-import ProductGrid from "./components/Products/ProductGrid";
+import FilterSidebar from "../components/Products/FilterSideBar";
+import SortOptions from "../components/Products/SortOptions";
+import ProductGrid from "../components/Products/ProductGrid";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsByFilters } from "../redux/slices/productSlice";
@@ -58,7 +58,7 @@ const CollectionPage = () => {
                 ref={sidebarRef}
                 className={`${isSidebarOpen ? "-translate-x-0" : "-translate-x-full"} fixed inset-y-0 z-50 left-0 w-64 bg-white overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}
             >
-                <FilterSideBar />
+                <FilterSidebar />
             </div>
             <div className="flex-grow p-4">
                 <h2 className="text-2xl uppercase mb-4">All Collection</h2>
