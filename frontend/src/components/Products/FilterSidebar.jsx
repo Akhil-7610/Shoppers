@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const FilterSidebar = () => {
-
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
     const [filters, setFilters] = useState({
@@ -116,9 +115,7 @@ const FilterSidebar = () => {
         setFilters(filters);
         updateURLParams(newFilters);
       }
-
-
-    return (
+  return (
         <div className="p-4">
             <h3 className="text-xl font-medium text-gray-800 mb-4">Filter</h3>
 
