@@ -33,7 +33,7 @@ const Navbar = () => {
             <nav className='container mx-auto flex items-center justify-between py-4 px-6 md:px-10'>
                 {/* Left Logo */}
                 <div>
-                    <Link to="/" className='text-1xl md:text-2xl font-medium'>Shoppers</Link>
+                    <Link to="/" className='text-1xl md:text-2xl font-bold'>Shoppers</Link>
                 </div>
                 <div className='hidden md:flex space-x-6'>
                     <Link to="/collections/all?gender=Men" className='text-gray-700 hover:text-black text-sm font-medium uppercase'>

@@ -12,7 +12,7 @@ const Hero = () => {
                         Vacation <br />Ready
                     </h1>
                     <p className="text-sm tracking-tighter md:text-lg mb-6">Explore our vacation-ready outfits with fast worldwide shipping.</p>
-                    <Link to="#" className="bg-white text-gray-500 px-6 py-2 rounded-md text-lg hover:bg-red-rabbit hover:text-white hover:bg-rabbit-red transition-colors">
+                    <Link to="/collections/all" className="bg-white text-gray-500 px-6 py-2 rounded-md text-lg hover:bg-red-rabbit hover:text-white hover:bg-rabbit-red transition-colors">
                         Shop Now
                     </Link>
                 </div>
