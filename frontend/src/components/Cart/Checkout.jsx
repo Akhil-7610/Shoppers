@@ -46,9 +46,7 @@ const Checkout = () => {
     };
 
     const handlePaymentSuccess = async (details) => {
-        try {
-            console.log("Payment successful, details:", details);
-            
+        try {            
             if (!checkoutId) {
                 console.error("Missing checkoutId, cannot process payment");
                 alert("An error occurred processing your payment. Please try again.");
@@ -67,7 +65,6 @@ const Checkout = () => {
                 }
             };
             
-            console.log("Sending payment data to backend:", paymentData);
             
             const response = await axios.put(
                 `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
@@ -80,10 +77,7 @@ const Checkout = () => {
                 }
             );
             
-            console.log("Payment API response:", response);
-            
             if (response.status === 200) {
-                console.log("Payment recorded successfully");
                 await handleFinalizeCheckout(checkoutId);
             } else {
                 console.error("Error recording payment:", response);
@@ -123,7 +117,6 @@ const Checkout = () => {
             
             // Check for successful status codes (both 200 and 201)
             if (response.status === 200 || response.status === 201) {
-                console.log("Order finalized successfully:", response.data);
                 navigate("/order-confirmation", { 
                     state: { 
                         orderDetails: response.data 

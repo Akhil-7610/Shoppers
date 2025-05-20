@@ -34,7 +34,7 @@ const Home = () => {
                 const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/best-seller`);
                 setBestSellerProduct(response.data)
             } catch (error) {
-                console.log(error);
+                console.error(error);
                 
             }
         };

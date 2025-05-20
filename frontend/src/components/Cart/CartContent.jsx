@@ -29,17 +29,16 @@ const CartContent = ({ cart, userId, guestId }) => {
             size,
             color
         };
-        
+
         // Only add guestId or userId if they exist
         if (guestId) {
             params.guestId = guestId;
         }
-        
+
         if (userId) {
             params.userId = userId;
         }
-        
-        console.log("Removing item from cart:", params);
+
         dispatch(removeFromCart(params));
     };
 

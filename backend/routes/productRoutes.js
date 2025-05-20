@@ -144,7 +144,7 @@ router.delete("/:id", protect, admin, async (req, res) => {
             res.status(404).json({ message: "Product not found" });
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
         res.status(500).send("Server Error");
 
     }
@@ -169,59 +169,49 @@ router.get("/", async (req, res) => {
             limit
         } = req.query;
 
-        console.log("API Request received with query:", req.query);
-
         let query = {};
 
         // Filter Logic
         if (collection && collection.toLowerCase() !== "all") {
             query.collections = collection;
-            console.log(`Filtering by collection: ${collection}`);
         }
 
         if (category && category.toLowerCase() !== "all") {
             query.category = category;
-            console.log(`Filtering by category: ${category}`);
         }
 
         if (material) {
             query.material = { $in: material.split(",") };
-            console.log(`Filtering by material: ${material}`);
         }
 
         if (brand) {
             query.brand = { $in: brand.split(",") };
-            console.log(`Filtering by brand: ${brand}`);
         }
 
         if (size) {
             query.sizes = { $in: size.split(",") };
-            console.log(`Filtering by size: ${size}`);
         }
 
         if (color) {
             query.colors = { $in: [color] };
-            console.log(`Filtering by color: ${color}`);
         }
 
         if (gender) {
             query.gender = gender;
-            console.log(`Filtering by gender: ${gender}`);
         }
 
         if (minPrice || maxPrice) {
             query.price = {};
             if (minPrice) query.price.$gte = Number(minPrice);
             if (maxPrice) query.price.$lte = Number(maxPrice);
-            console.log(`Filtering by price range: ${minPrice || 0} - ${maxPrice || 'unlimited'}`);
-        }
+             }
 
         if (search) {
             query.$or = [
                 { name: { $regex: search, $options: "i" } },
                 { description: { $regex: search, $options: "i" } },
             ];
-            console.log(`Searching for: ${search}`);
+           
         }
 
         // Sort Logic
@@ -240,23 +230,21 @@ router.get("/", async (req, res) => {
                 default:
                     break;
             }
-            console.log(`Sorting by: ${sortBy}`);
+            
         }
 
-        console.log("Final MongoDB query:", JSON.stringify(query));
-        console.log("Sort criteria:", JSON.stringify(sort));
 
         // Fetch products and apply sorting and limit
         let products = await Product.find(query).sort(sort).limit(Number(limit) || 0);
         
-        console.log(`Found ${products.length} products`);
+       
         
         // If no products found with filters, try without collection filter as fallback
         if (products.length === 0 && collection) {
-            console.log("No products found with collection filter, trying without it");
+           
             const { collections, ...restQuery } = query;
             products = await Product.find(restQuery).sort(sort).limit(Number(limit) || 0);
-            console.log(`Found ${products.length} products without collection filter`);
+            
         }
 
         res.json(products);
